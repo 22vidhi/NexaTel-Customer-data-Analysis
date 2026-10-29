@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Local environments
+.venv/
+venv/
+env/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+csv_files/
+cleaned_data/
+phase3_reports/cohort_retention.csv
+phase3_reports/kpi_summary.csv
+quality_reports/*.csv
+
+# Do not upload CSV files
+*.csv

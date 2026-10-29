@@ -1,0 +1,27 @@
+# NexaTel Data Quality Report
+
+## Scope
+All 24 NexaTel CSV tables were loaded with pandas and assessed before analysis. The notebook produced table profiles, missing-value percentages, duplicate checks, type validation, outlier checks, referential-integrity checks, and a comparison with data_quality_issue_log.csv.
+
+## Key findings
+- Tables loaded: 24
+- Total source rows: 756,952
+- Future billing dates: 108
+- Negative total invoice amounts: 229
+- Impossible customer ages: 23
+- Invalid PIN codes: 191
+- Invalid phone numbers: 228
+- Broken payment invoice references: 184
+- Unresolved complaints: 7348 of 16584 (44.31%)
+- Subscriptions with null plan_id: 41
+- Subscriptions with invalid status: 102
+- data_gb_used outliers by IQR rule: 4480
+
+## Referential integrity
+Customer IDs were checked in subscriptions, billing, usage_data, usage_sms, usage_voice, payments, and other customer-level tables. Detailed broken-key counts are in referential_integrity_report.csv.
+
+## Data handling decision
+Raw source files were not overwritten. Findings are flagged in audit reports so business rules can be reviewed before any values or rows are changed. Cleaned data should only be used after the flagged issues are approved and documented.
+
+## Deliverables
+The notebook and CSV reports are saved in the NexaTel project folder.
